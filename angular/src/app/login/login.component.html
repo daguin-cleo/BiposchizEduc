@@ -1,0 +1,32 @@
+<div class="formcontainer">
+    <div class="formbody">
+        <form style="width:100%;" [formGroup]="loginForm">
+            <div class="header">Bienvenue</div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="text" formControlName="username" matInput placeholder="Nom utilisateur">
+                </mat-form-field>
+                <span *ngIf="isValid('username')">Le nom d'utilisateur est requis</span>
+            </div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="password" formControlName="password" matInput placeholder="Mot de passe">
+                </mat-form-field>
+                <span *ngIf="isValid('password')">Le mot de passe est requis</span>
+            </div>
+            <div> 
+                <span *ngIf="errorMessage">Le nom d'utilisateur ou mot de passe incorrectes</span>
+            </div>
+            <div style="margin-top:40px;">
+               
+                <button class="form-btn" (click)="login()">Connexion</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <div style="width: 290px; padding: 20px;">
+            <button class="form-btn-hollow" (click)="movetoregister()">Inscription</button>
+        </div>
+    </div>
+</div>
