@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material';
 import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import {MyserviceService} from './myservice.service';
 import { HttpClientModule } from '@angular/common/http';
+import { QuizComponent } from './quiz/quiz.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     UserDashboardComponent,
-    MainDeskComponent
+    MainDeskComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
