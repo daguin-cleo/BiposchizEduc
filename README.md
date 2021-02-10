@@ -1,6 +1,6 @@
 # Steps to reproduce:
 1. git clone https://gitlab.istic.univ-rennes1.fr/17001635/biposchizeduc.git
-2. Run mongoDB
+2. Run mongoDB on port 27017
 ### Run front-end:
 3. cd angular
 4. npm install
