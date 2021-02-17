@@ -1,14 +1,18 @@
 <div class="card-container">
   <div #card class="card">
-    <div class="card-front">Front</div>
-    <div class="card-back">
-      <div class="question">Question</div>
-      <div id="answer-buttons" class="btn-grid">
-        <button  class="btn">Answer 1</button>
-        <button  class="btn">Answer 2</button>
-        <button  class="btn">Answer 3</button>
-        <button  class="btn">Answer 4</button>
+    <div #cardFront class="card-front">{{cardText[color - 1]}}</div>
+    <div class="card-back" *ngIf="currentQuestion">
+      <div class="question">{{currentQuestion.question}}</div>
+      <div *ngIf="displayBtnAnswer; else explanationBlock" id="answer-buttons" class="btn-grid">
+        <button class="btn" *ngFor="let answer of currentQuestion.answers" (click)="setAnswer(answer.correct)">{{answer.text}}</button>
       </div>
+      <ng-template #explanationBlock>
+        <br>
+        {{answeredDisplay}}
+        <br>
+        {{currentQuestion.explication}}
+        <button class="btn explanation-btn"(click)="processAnswer()">ok</button>
+      </ng-template>
     </div>
   </div>
 </div>

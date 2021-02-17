@@ -2,28 +2,21 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
 
-router.get('/', (req, res, next) => {
-    res
-        .status(200)
-        .json({message: 'je suis au /'})
-});
+router.get('/', async (req, res) => {
 
-
-router.get('/:id', async (req, res, next) => {
-    const id = req.params.id;
-
-    let questions = await Question.find({"type": id}).exec();
-    console.log("je suis ici");
-
-    if (!questions)
-        res
+    console.log(req.query.type)
+    let questions;
+    if(req.query.type)
+        questions = await Question.find({type: {$in: req.query.type}})
+    else 
+        questions = await Question.find({});
+    
+    if(!questions)
+        res 
             .status(404)
-            .json({message: 'Wrong id'})
-    else {
+            .json({message: 'not found'})
+    else 
         res.json(questions)
-    }
-
-
 });
 
 module.exports = router;

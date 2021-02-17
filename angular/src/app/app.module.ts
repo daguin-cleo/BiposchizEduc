@@ -16,6 +16,8 @@ import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import {MyserviceService} from './myservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizComponent } from './quiz/quiz.component';
+import { QuestionAPIService } from './question-api.service';
+import { GameComponent } from './game/game.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { QuizComponent } from './quiz/quiz.component';
     RegisterComponent,
     UserDashboardComponent,
     MainDeskComponent,
-    QuizComponent
+    QuizComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import { QuizComponent } from './quiz/quiz.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ MyserviceService],
+  providers: [ MyserviceService, QuestionAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

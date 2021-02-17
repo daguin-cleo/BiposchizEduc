@@ -1,0 +1,28 @@
+<app-quiz *ngIf="showQuestion; else boardBlock" (answerEvent)="answerHandler($event)" [currentQuestion]="currentQuestion" [color]="currentColor" [color]="currentColor"></app-quiz>
+
+<ng-template #boardBlock>
+  <div class="container">
+    <canvas #canvas></canvas>
+    
+
+    <div class = "scene">
+        <div #cube class="cube">
+         <div class="cube__face cube__face--1">1</div>
+         <div class="cube__face cube__face--2">2</div>
+         <div class="cube__face cube__face--3">3</div>
+         <div class="cube__face cube__face--4">4</div>
+         <div class="cube__face cube__face--5">5</div>
+         <div class="cube__face cube__face--6">6</div>
+       </div>
+       
+       <button *ngIf="showThrowBtn" (click)="rollDice()" class="rollBtn">Jeter le dé</button>
+       <button *ngIf="showTakeCard" (click)="switchView()" class="cardBtn">Prendre la carte</button>
+     </div>
+  </div>
+
+</ng-template>
+
+
+
+
+

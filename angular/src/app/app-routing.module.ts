@@ -6,6 +6,7 @@ import { MainDeskComponent } from './main-desk/main-desk.component';
 import { RegisterComponent } from './register/register.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { GameComponent } from './game/game.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
       ]
   },
   { path: 'questions', component: QuizComponent},
+  { path: 'game', component: GameComponent},
   {path: 'dash' , component: UserDashboardComponent}
 ];
 
