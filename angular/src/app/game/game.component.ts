@@ -27,7 +27,8 @@ export class GameComponent implements OnInit {
                               0, 0, 0, 0, 0, 0, 0, 1,
                               0, 0, 0, 0, 0, 0, 0, 2];
   private pawnPath = [{x: 7, y: 8}, {x: 7, y: 7}, {x: 7, y: 6}, {x: 7, y: 5}, {x: 7, y: 4}, {x: 7, y: 3}, {x: 7, y: 2}, {x: 7, y: 1}, 
-                      {x: 7, y: 0}, {x:6, y:0}, {x: 5, y: 0}]
+                      {x: 7, y: 0}, {x: 6, y: 0}, {x: 5, y: 0}, {x: 4, y: 0}, {x: 3, y: 0}, {x: 2, y: 0}, {x: 1, y: 0}, {x: 0, y: 0},
+                      {x: 0, y: 1}, {x: 0, y: 2}, {x: 0, y: 3}, {x: 0, y: 4}, {x: 0, y: 5}, {x: 0, y: 6}, {x: 1, y: 6}]
   private pawnCurrentIndex: number = 0;
   private pawnLastIndex: number = 0;
 
@@ -55,6 +56,7 @@ export class GameComponent implements OnInit {
       data.forEach(e => {
         this.questionsRaw.push(new Question(e.type, e.couleur, e.question, e.explication, e.answers));
       });
+      this.questionsRaw = this.shuffle(this.questionsRaw);
       this.tidyQuestion();
     });
   }
@@ -64,6 +66,22 @@ export class GameComponent implements OnInit {
       this.questions[question.couleur - 1].push(question)
     });
     this.setNextQuestion();
+  }
+
+  shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    while (0 !== currentIndex) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
   }
 
   setNextQuestion() {
